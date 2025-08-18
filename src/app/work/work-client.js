@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 export default function WorkClient() {
   const [videoEnded, setVideoEnded] = useState(false);
@@ -7,30 +8,11 @@ export default function WorkClient() {
   const [videoVisible, setVideoVisible] = useState(false);
   const videoRef = useRef(null);
 
-  const appImages = [
-    { id: 't1' },
-    { id: 't2' },
-    { id: 't3' },
-    { id: 't4' },
-    { id: 't5' },
-    { id: 't6' }
-  ];
+  const appImages = [{ id: "t1" }, { id: "t2" }, { id: "t3" }, { id: "t4" }, { id: "t5" }, { id: "t6" }];
 
-  const shoeHiveImages = [
-    { id: 's1' },
-    { id: 's2' },
-    { id: 's3' },
-    { id: 's4' },
-    { id: 's5' }
-  ];
+  const shoeHiveImages = [{ id: "s1" }, { id: "s2" }, { id: "s3" }, { id: "s4" }, { id: "s5" }];
 
-  const appliedPlusImages = [
-    { id: 'a1' },
-    { id: 'a2' },
-    { id: 'a3' },
-    { id: 'a4' },
-    { id: 'a5' }
-  ];
+  const appliedPlusImages = [{ id: "a1" }, { id: "a2" }, { id: "a3" }, { id: "a4" }, { id: "a5" }];
 
   const enableAudio = () => {
     setMuted(false);
@@ -62,7 +44,9 @@ export default function WorkClient() {
             muted={muted}
             playsInline
             onEnded={() => setVideoEnded(true)}
-            className={`w-full h-full object-cover transition-opacity duration-1000 ${videoVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`w-full h-full object-cover transition-opacity duration-1000 ${
+              videoVisible ? "opacity-100" : "opacity-0"
+            }`}
           />
 
           {muted && videoVisible && (
@@ -80,7 +64,7 @@ export default function WorkClient() {
         <div className="w-full animate-fadeInUp pt-20">
           <h1 className="text-4xl font-bold mb-4 text-center">Tixoo Event App</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-16 text-center">
-            Here's a showcase of our mobile app development process, from initial design to final implementation.
+            Here&apos;s a showcase of our mobile app development process, from initial design to final implementation.
           </p>
 
           {/* Infinite Scrolling Images */}
@@ -92,9 +76,11 @@ export default function WorkClient() {
                   className="flex-shrink-0 mx-4 transition-all duration-300 hover:scale-110 image-container"
                 >
                   <div className="w-48 h-80 rounded-xl overflow-hidden shadow-lg bg-gray-800">
-                    <img 
-                      src={`/${image.id}.jpeg`} 
+                    <Image
+                      src={`/${image.id}.jpeg`}
                       alt=""
+                      width={192}
+                      height={320}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -118,9 +104,11 @@ export default function WorkClient() {
                     className="flex-shrink-0 mx-4 transition-all duration-300 hover:scale-110 image-container"
                   >
                     <div className="w-48 h-80 rounded-xl overflow-hidden shadow-lg bg-gray-800">
-                      <img 
-                        src={`/${image.id}.jpeg`} 
+                      <Image
+                        src={`/${image.id}.jpeg`}
                         alt=""
+                        width={192}
+                        height={320}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -145,9 +133,11 @@ export default function WorkClient() {
                     className="flex-shrink-0 mx-4 transition-all duration-300 hover:scale-110 image-container"
                   >
                     <div className="w-48 h-80 rounded-xl overflow-hidden shadow-lg bg-gray-800">
-                      <img 
-                        src={`/${image.id}.jpeg`} 
+                      <Image
+                        src={`/${image.id}.jpeg`}
                         alt=""
+                        width={192}
+                        height={320}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -164,25 +154,35 @@ export default function WorkClient() {
           animation: fadeInUp 1s ease forwards;
         }
         @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         .animate-scroll {
           animation: scroll 20s linear infinite;
         }
-        
+
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
-        
-        .image-container:nth-child(3n+2) {
+
+        .image-container:nth-child(3n + 2) {
           transform: scale(1.2);
           z-index: 10;
           position: relative;
         }
-        
+
         .image-container:hover {
           z-index: 20;
         }

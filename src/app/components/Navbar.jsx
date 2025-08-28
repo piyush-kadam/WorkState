@@ -58,24 +58,24 @@ export default function Navbar() {
   return (
     <div className={`fixed z-50 transition-all duration-1000 ease-in-out ${
       shouldShowIcon && shouldMoveToLeft
-        ? 'top-4 left-6' 
-        : 'top-6 left-1/2 -translate-x-1/2'
+        ? 'top-2 sm:top-4 left-2 sm:left-6' 
+        : 'top-3 sm:top-6 left-1/2 -translate-x-1/2 px-4 sm:px-6 lg:px-0'
     }`}>
       {/* Morphing Container */}
       <div 
         className={`transition-all duration-1000 ease-in-out cursor-pointer ${
           shouldShowIcon
-            ? 'w-20 h-10' 
-            : 'w-[90vw] max-w-6xl h-auto cursor-default'
+            ? 'w-16 sm:w-20 h-8 sm:h-10' 
+            : 'w-[calc(100vw-2rem)] sm:w-[calc(100vw-3rem)] lg:w-[90vw] max-w-6xl h-auto cursor-default'
         }`}
         onClick={shouldShowIcon ? toggleMenu : undefined}
       >
-        {/* Background - Pure dark black */}
+        {/* Background - Pure dark black with thin white border */}
         <div className={`relative w-full h-full transition-all duration-1000 ease-in-out 
-          bg-black border border-white/10 shadow-2xl ${
+          bg-black border border-white/30 shadow-2xl ${
           shouldShowIcon
-            ? 'rounded-2xl' 
-            : 'rounded-full'
+            ? 'rounded-xl sm:rounded-2xl' 
+            : 'rounded-3xl sm:rounded-full'
         }`}>
           
           {/* Folded Icon State */}
@@ -87,20 +87,28 @@ export default function Navbar() {
             <img 
               src="h4.jpeg" 
               alt="Navigation Icon"
-              className="absolute inset-0 w-full h-full object-cover rounded-2xl drop-shadow-sm"
+              className="absolute inset-0 w-full h-full object-cover rounded-xl sm:rounded-2xl drop-shadow-sm"
             />
           </div>
 
           {/* Navigation Content - Only visible when expanded */}
-          <div className={`transition-opacity duration-500 ${
+          <div className={`transition-opacity duration-500 overflow-hidden ${
             shouldShowMenu ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}>
-            <nav className="px-8 py-4 flex justify-between items-center">
-              <Link href="/" className="text-2xl font-bold tracking-wide text-white hover:text-gray-300 transition">
+            <nav className="px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex justify-between items-center min-h-[3rem] sm:min-h-[3.5rem]">
+              <Link href="/" className="text-lg sm:text-xl lg:text-2xl font-bold tracking-wide text-white hover:text-gray-300 transition flex-shrink-0">
                 WorkState
               </Link>
 
-              <div className="flex gap-6 text-white">
+              <div className="hidden sm:flex gap-3 md:gap-4 lg:gap-6 text-sm md:text-base text-white flex-shrink-0">
+                <Link href="/" className="hover:text-gray-300 transition whitespace-nowrap">Home</Link>
+                <Link href="/work" className="hover:text-gray-300 transition whitespace-nowrap">Work</Link>
+                <Link href="/about" className="hover:text-gray-300 transition whitespace-nowrap">About</Link>
+                <Link href="/contact" className="hover:text-gray-300 transition whitespace-nowrap">Contact</Link>
+              </div>
+
+              {/* Mobile menu for small screens */}
+              <div className="flex sm:hidden gap-2 text-xs text-white flex-shrink-0">
                 <Link href="/" className="hover:text-gray-300 transition">Home</Link>
                 <Link href="/work" className="hover:text-gray-300 transition">Work</Link>
                 <Link href="/about" className="hover:text-gray-300 transition">About</Link>
@@ -109,11 +117,12 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="bg-white text-black px-5 py-2 rounded-full font-medium
+                className="bg-white text-black px-3 sm:px-4 lg:px-5 py-2 rounded-full font-medium text-xs sm:text-sm lg:text-base
                            hover:bg-gray-200 hover:scale-105 active:scale-95
-                           transition-transform duration-200"
+                           transition-transform duration-200 flex-shrink-0 whitespace-nowrap"
               >
-                Start a Project
+                <span className="hidden sm:inline">Start a Project</span>
+                <span className="sm:hidden">Start</span>
               </Link>
             </nav>
           </div>

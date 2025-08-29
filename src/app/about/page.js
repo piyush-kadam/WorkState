@@ -27,7 +27,7 @@ export default function AboutPage() {
 
   return (
     <section
-      className="relative px-8 py-20 pt-30 min-h-screen flex flex-col items-center justify-center text-white"
+      className="relative px-8 py-30 min-h-screen flex flex-col items-center justify-center text-white bg-black"
       style={{
         backgroundImage: "url('/about-bg.jpg')",
         backgroundSize: "cover",

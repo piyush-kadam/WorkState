@@ -12,7 +12,7 @@ export default function SimpleSpacePortfolio() {
     {
       name: "TIXOO",
       mainImage: "/tixoo.png",
-      images: ["/t1.jpeg", "/t2.jpeg", "/t3.jpeg", "/t4.jpeg", "/t5.jpeg", "/t6.jpeg"],
+      images: ["/t1.jpeg","/t2.jpeg","/t3.jpeg","/t4.jpeg","/t5.jpeg","/t6.jpeg","/t7.jpeg","/t8.jpeg"],
       description: "EVENT MANAGEMENT PLATFORM",
       details: "Revolutionary digital experience for event organization and ticketing system",
       year: "2024",
@@ -20,7 +20,7 @@ export default function SimpleSpacePortfolio() {
     {
       name: "SHOEHIVE",
       mainImage: "/shoehive.png",
-      images: ["/s1.jpeg", "/s2.jpeg", "/s3.jpeg", "/s4.jpeg", "/s5.jpeg"],
+      images: ["/s1.jpeg","/s2.jpeg","/s3.jpeg","/s4.jpeg","/s5.jpeg","/s6.jpeg","/s7.jpeg","/s8.jpeg"],
       description: "PREMIUM SHOE MARKETPLACE",
       details: "Next-generation shopping experience with premium shoe collections",
       year: "2023",
@@ -28,7 +28,7 @@ export default function SimpleSpacePortfolio() {
     {
       name: "APPLIEDPLUS",
       mainImage: "/appliedplus.png",
-      images: ["/a1.jpeg", "/a2.jpeg", "/a3.jpeg", "/a4.jpeg", "/a5.jpeg"],
+      images: ["/a1.jpeg","/a2.jpeg","/a3.jpeg","/a4.jpeg","/a5.jpeg","/a6.jpeg","/a7.jpeg","/a8.jpeg"],
       description: "CAREER PLATFORM",
       details: "Advanced job application system connecting talent with opportunities",
       year: "2024",
@@ -48,15 +48,11 @@ export default function SimpleSpacePortfolio() {
           <div className="stars"></div>
         </div>
 
-        <div className="relative z-20 pt-16 pb-16">
+        <div className="relative z-20 pt-32 pb-16">
           {/* Header */}
           <div className="text-center mb-20">
-            <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-wider">
-              PORTFOLIO
-            </h1>
-            <div className="text-lg tracking-[0.3em] text-gray-400 font-light">
-              DIGITAL ARCHITECT
-            </div>
+            <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-wider">PORTFOLIO</h1>
+            <div className="text-lg tracking-[0.3em] text-gray-400 font-light">DIGITAL ARCHITECT</div>
           </div>
 
           {/* Projects List */}
@@ -65,7 +61,7 @@ export default function SimpleSpacePortfolio() {
               <div key={project.name} className="project-section">
                 {/* Project Header */}
                 <div className="project-header mb-12">
-                  <div className="flex items-baseline justify-between mb-4">
+                  <div className="titlebar flex items-baseline justify-between mb-4">
                     <h2 className="project-title">{project.name}</h2>
                     <span className="project-year">{project.year}</span>
                   </div>
@@ -79,11 +75,7 @@ export default function SimpleSpacePortfolio() {
                   <div className="main-app-display mb-16">
                     <div className="app-container">
                       <div className="app-frame">
-                        <img
-                          src={project.mainImage}
-                          alt={project.name}
-                          className="app-image"
-                        />
+                        <img src={project.mainImage} alt={project.name} className="app-image" />
                       </div>
                       <div className="app-label">MAIN APPLICATION</div>
                     </div>
@@ -126,14 +118,15 @@ export default function SimpleSpacePortfolio() {
           {/* Footer */}
           <div className="text-center mt-40">
             <div className="text-4xl font-black mb-4">END TRANSMISSION</div>
-            <div className="text-sm tracking-widest text-gray-500">
-              PORTFOLIO • 2024 • SPACE
-            </div>
+            <div className="text-sm tracking-widest text-gray-500">PORTFOLIO • 2024 • SPACE</div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
+        /* kill any accidental horizontal scroll */
+        :global(html), :global(body) { overflow-x: hidden; }
+
         /* Background */
         .stars {
           position: absolute;
@@ -151,14 +144,9 @@ export default function SimpleSpacePortfolio() {
         }
 
         /* Project Section */
-        .project-section {
-          position: relative;
-        }
+        .project-section { position: relative; }
 
-        .project-header {
-          text-align: left;
-          max-width: 600px;
-        }
+        .project-header { text-align: left; max-width: 600px; }
 
         .project-title {
           font-size: 4rem;
@@ -167,11 +155,7 @@ export default function SimpleSpacePortfolio() {
           margin: 0;
         }
 
-        .project-year {
-          font-size: 1.2rem;
-          color: #666;
-          font-weight: 600;
-        }
+        .project-year { font-size: 1.2rem; color: #666; font-weight: 600; }
 
         .project-description {
           font-size: 14px;
@@ -181,29 +165,16 @@ export default function SimpleSpacePortfolio() {
           margin: 8px 0;
         }
 
-        .project-details {
-          font-size: 18px;
-          color: #ccc;
-          line-height: 1.5;
-          margin: 0;
-        }
+        .project-details { font-size: 18px; color: #ccc; line-height: 1.5; margin: 0; }
 
         /* Main App Display */
-        .main-app-display {
-          display: flex;
-          justify-content: center;
-        }
+        .main-app-display { display: flex; justify-content: center; }
 
-        .app-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-        }
+        .app-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
         .app-frame {
-          width: 700px;   /* was 400 */
-          height: 500px;  /* was 300 */
+          width: 700px;
+          height: 500px;
           border: 2px solid rgba(255,255,255,0.2);
           border-radius: 16px;
           overflow: hidden;
@@ -214,24 +185,12 @@ export default function SimpleSpacePortfolio() {
           padding: 24px;
         }
 
-        .app-image {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-          filter: contrast(1.1);
-        }
+        .app-image { max-width: 100%; max-height: 100%; object-fit: contain; filter: contrast(1.1); }
 
-        .app-label {
-          font-size: 14px;
-          color: #666;
-          font-weight: 600;
-          letter-spacing: 0.15em;
-        }
+        .app-label { font-size: 14px; color: #666; font-weight: 600; letter-spacing: 0.15em; }
 
         /* Screenshots Section */
-        .screenshots-section {
-          margin-top: 60px;
-        }
+        .screenshots-section { margin-top: 80px; }
 
         .section-label {
           font-size: 13px;
@@ -242,38 +201,39 @@ export default function SimpleSpacePortfolio() {
         }
 
         .screenshots-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* bigger cells */
-          gap: 30px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center; /* ✅ ensures items are centered */
+}
 
-        .screenshot-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 14px;
-        }
+.screenshot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
 
-        .screenshot-frame {
-          width: 240px;   /* was 180 */
-          height: 420px;  /* was 320 */
-          border: 1px solid rgba(255,255,255,0.15);
-          border-radius: 10px;
-          overflow: hidden;
-          background: rgba(255,255,255,0.01);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 16px;
-          transition: all 0.3s ease;
-        }
+.screenshot-frame {
+  width: 240px;
+  height: 420px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  margin: 0 auto;   /* ✅ centers the frame in its cell */
+   margin-right: 20px; 
+}
 
-        .screenshot-frame:hover {
-          border-color: rgba(255,255,255,0.3);
-          transform: translateY(-6px);
-        }
+
 
         .screenshot-image {
           max-width: 100%;
@@ -283,9 +243,8 @@ export default function SimpleSpacePortfolio() {
           transition: filter 0.3s ease;
         }
 
-        .screenshot-frame:hover .screenshot-image {
-          filter: grayscale(0) contrast(1.2);
-        }
+        .screenshot-frame:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-6px); }
+        .screenshot-frame:hover .screenshot-image { filter: grayscale(0) contrast(1.2); }
 
         .screenshot-number {
           font-size: 12px;
@@ -297,57 +256,57 @@ export default function SimpleSpacePortfolio() {
         }
 
         /* Project Divider */
-        .project-divider {
-          margin-top: 100px;
-          display: flex;
-          justify-content: center;
-        }
+        .project-divider { margin-top: 100px; display: flex; justify-content: center; }
+        .divider-line { width: 220px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); }
 
-        .divider-line {
-          width: 220px;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        }
+        /* -----------------------
+           PHONE-ONLY CENTER FIXES
+           ----------------------- */
+        @media (max-width: 640px) {
+          /* center the header block and title/year row */
+          .project-header { text-align: center; margin-left: auto; margin-right: auto; max-width: 90vw; }
+          .titlebar { flex-direction: column; align-items: center; gap: 6px; }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+          /* scale headings nicely on small screens */
+          .project-title { font-size: 2.25rem; line-height: 1.1; }
+          .project-year { font-size: 1rem; }
+
+          /* center the main app frame perfectly */
+          .main-app-display { justify-content: center; }
           .app-frame {
-            width: 550px;
-            height: 400px;
-          }
-          .screenshot-frame {
-            width: 200px;
-            height: 350px;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .app-frame {
-            width: 420px;
-            height: 320px;
-          }
-          .screenshots-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          .screenshot-frame {
-            width: 180px;
-            height: 300px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .app-frame {
-            width: 320px;
-            height: 240px;
-          }
-          .screenshots-grid {
-            grid-template-columns: 1fr;
-          }
-          .screenshot-frame {
-            width: 200px;
-            height: 320px;
+            width: min(92vw, 360px);
+            height: auto;
+            aspect-ratio: 4 / 3;
+            padding: 12px;
             margin: 0 auto;
           }
+
+          /* center the screenshots grid + items */
+          .screenshots-grid {
+            grid-template-columns: 1fr;
+            justify-items: center;      /* <-- keeps column centered */
+            gap: 22px;
+            width: 100%;
+          }
+          .screenshot-item { align-items: center; }
+          .screenshot-frame {
+            width: min(92vw, 360px);
+            height: auto;
+            aspect-ratio: 9 / 16;
+            padding: 12px;
+          }
+
+          /* keep footer & labels centered and comfy */
+          .section-label { text-align: center; }
+          .project-divider { margin-top: 60px; }
+        }
+
+        /* Tablet tweaks (optional, safe) */
+        @media (min-width: 641px) and (max-width: 1023px) {
+          .project-header { max-width: 90vw; }
+          .app-frame { width: 90vw; height: auto; aspect-ratio: 4 / 3; }
+          .screenshots-grid { grid-template-columns: repeat(2, 1fr); justify-items: center; }
+          .screenshot-frame { width: 280px; height: auto; aspect-ratio: 9 / 16; }
         }
       `}</style>
     </div>

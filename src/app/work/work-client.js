@@ -282,19 +282,24 @@ export default function SimpleSpacePortfolio() {
           }
 
           /* center the screenshots grid + items */
-          .screenshots-grid {
-            grid-template-columns: 1fr;
-            justify-items: center;      /* <-- keeps column centered */
-            gap: 22px;
-            width: 100%;
-          }
-          .screenshot-item { align-items: center; }
-          .screenshot-frame {
-            width: min(92vw, 360px);
-            height: auto;
-            aspect-ratio: 9 / 16;
-            padding: 12px;
-          }
+           .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 per row */
+    gap: 12px;
+    width: 100%;
+  }
+
+  .screenshot-item {
+    width: 100%;  /* ✅ let it auto-fit */
+    align-items: center;
+  }
+
+  .screenshot-frame {
+    width: 100%;        /* ✅ take full cell width */
+    aspect-ratio: 9 / 16;
+    height: auto;
+    padding: 6px;
+  }
+
 
           /* keep footer & labels centered and comfy */
           .section-label { text-align: center; }

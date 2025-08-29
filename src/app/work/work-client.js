@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 export default function SimpleSpacePortfolio() {
   const [videoEnded, setVideoEnded] = useState(false);
   const [muted, setMuted] = useState(true);
-  const [videoVisible, setVideoVisible] = useState(false);
   const [hasPlayedVideo, setHasPlayedVideo] = useState(false);
   const videoRef = useRef(null);
 
@@ -35,13 +34,67 @@ export default function SimpleSpacePortfolio() {
     },
   ];
 
+  // ✅ Only play intro video once per refresh
   useEffect(() => {
-    setVideoEnded(true);
-    setHasPlayedVideo(true);
+    if (!sessionStorage.getItem("videoPlayed")) {
+      setHasPlayedVideo(false);
+    } else {
+      setVideoEnded(true);
+      setHasPlayedVideo(true);
+    }
   }, []);
+
+  const handleVideoEnd = () => {
+    setVideoEnded(true);
+    sessionStorage.setItem("videoPlayed", "true");
+  };
+
+  const toggleMute = () => {
+    setMuted((prev) => !prev);
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+    }
+  };
+
+  const skipVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+    handleVideoEnd();
+  };
 
   return (
     <div className="min-h-screen bg-black text-white relative">
+      {/* ✅ Intro Video Overlay */}
+      {!videoEnded && !hasPlayedVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+          <video
+            ref={videoRef}
+            src="/h5.mp4"
+            autoPlay
+            muted={muted}
+            className="w-full h-full object-cover"
+            onEnded={handleVideoEnd}
+          />
+          {/* Controls */}
+          <div className="absolute bottom-6 right-6 flex gap-3">
+            <button
+              onClick={toggleMute}
+              className="px-4 py-2 bg-white/20 text-white rounded-lg border border-white/40 hover:bg-white/30 transition"
+            >
+              {muted ? "Unmute" : "Mute"}
+            </button>
+            <button
+              onClick={skipVideo}
+              className="px-4 py-2 bg-red-500/80 text-white rounded-lg hover:bg-red-600/90 transition"
+            >
+              Skip Intro
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ✅ Portfolio Content */}
       <div className="w-full min-h-screen relative">
         <div className="fixed inset-0 z-0">
           <div className="absolute inset-0 bg-black"></div>
@@ -81,7 +134,7 @@ export default function SimpleSpacePortfolio() {
                     </div>
                   </div>
 
-                  {/* App Screenshots Gallery */}
+                  {/* App Screenshots */}
                   <div className="screenshots-section">
                     <div className="section-label mb-8">
                       APP SCREENSHOTS • {project.images.length} IMAGES
@@ -105,7 +158,7 @@ export default function SimpleSpacePortfolio() {
                   </div>
                 </div>
 
-                {/* Project Divider */}
+                {/* Divider */}
                 {index < projects.length - 1 && (
                   <div className="project-divider">
                     <div className="divider-line"></div>
@@ -123,11 +176,9 @@ export default function SimpleSpacePortfolio() {
         </div>
       </div>
 
+      {/* ⭐ Your existing styles untouched */}
       <style jsx>{`
-        /* kill any accidental horizontal scroll */
         :global(html), :global(body) { overflow-x: hidden; }
-
-        /* Background */
         .stars {
           position: absolute;
           width: 100%;
@@ -142,171 +193,41 @@ export default function SimpleSpacePortfolio() {
           background-size: 200px 100px;
           opacity: 0.3;
         }
-
-        /* Project Section */
         .project-section { position: relative; }
-
         .project-header { text-align: left; max-width: 600px; }
-
-        .project-title {
-          font-size: 4rem;
-          font-weight: 900;
-          letter-spacing: 0.05em;
-          margin: 0;
-        }
-
+        .project-title { font-size: 4rem; font-weight: 900; letter-spacing: 0.05em; margin: 0; }
         .project-year { font-size: 1.2rem; color: #666; font-weight: 600; }
-
-        .project-description {
-          font-size: 14px;
-          color: #888;
-          font-weight: 600;
-          letter-spacing: 0.2em;
-          margin: 8px 0;
-        }
-
+        .project-description { font-size: 14px; color: #888; font-weight: 600; letter-spacing: 0.2em; margin: 8px 0; }
         .project-details { font-size: 18px; color: #ccc; line-height: 1.5; margin: 0; }
-
-        /* Main App Display */
         .main-app-display { display: flex; justify-content: center; }
-
         .app-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-
-        .app-frame {
-          width: 700px;
-          height: 500px;
-          border: 2px solid rgba(255,255,255,0.2);
-          border-radius: 16px;
-          overflow: hidden;
-          background: rgba(255,255,255,0.02);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 24px;
-        }
-
+        .app-frame { width: 700px; height: 500px; border: 2px solid rgba(255,255,255,0.2); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; padding: 24px; }
         .app-image { max-width: 100%; max-height: 100%; object-fit: contain; filter: contrast(1.1); }
-
         .app-label { font-size: 14px; color: #666; font-weight: 600; letter-spacing: 0.15em; }
-
-        /* Screenshots Section */
         .screenshots-section { margin-top: 80px; }
-
-        .section-label {
-          font-size: 13px;
-          color: #888;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-align: center;
-        }
-
-        .screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  justify-items: center; /* ✅ ensures items are centered */
-}
-
-.screenshot-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-}
-
-.screenshot-frame {
-  width: 240px;
-  height: 420px;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.01);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  transition: all 0.3s ease;
-  margin: 0 auto;   /* ✅ centers the frame in its cell */
-   margin-right: 20px; 
-}
-
-
-
-        .screenshot-image {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-          filter: grayscale(0.1) contrast(1.1);
-          transition: filter 0.3s ease;
-        }
-
+        .section-label { font-size: 13px; color: #888; font-weight: 700; letter-spacing: 0.2em; text-align: center; }
+        .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; justify-items: center; }
+        .screenshot-item { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+        .screenshot-frame { width: 240px; height: 420px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.01); display: flex; align-items: center; justify-content: center; padding: 16px; transition: all 0.3s ease; margin: 0 auto; margin-right: 20px; }
+        .screenshot-image { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(0.1) contrast(1.1); transition: filter 0.3s ease; }
         .screenshot-frame:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-6px); }
         .screenshot-frame:hover .screenshot-image { filter: grayscale(0) contrast(1.2); }
-
-        .screenshot-number {
-          font-size: 12px;
-          color: #666;
-          font-weight: 600;
-          background: rgba(255,255,255,0.05);
-          padding: 4px 10px;
-          border-radius: 4px;
-        }
-
-        /* Project Divider */
+        .screenshot-number { font-size: 12px; color: #666; font-weight: 600; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; }
         .project-divider { margin-top: 100px; display: flex; justify-content: center; }
         .divider-line { width: 220px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); }
-
-        /* -----------------------
-           PHONE-ONLY CENTER FIXES
-           ----------------------- */
         @media (max-width: 640px) {
-          /* center the header block and title/year row */
           .project-header { text-align: center; margin-left: auto; margin-right: auto; max-width: 90vw; }
           .titlebar { flex-direction: column; align-items: center; gap: 6px; }
-
-          /* scale headings nicely on small screens */
           .project-title { font-size: 2.25rem; line-height: 1.1; }
           .project-year { font-size: 1rem; }
-
-          /* center the main app frame perfectly */
           .main-app-display { justify-content: center; }
-          .app-frame {
-            width: min(92vw, 360px);
-            height: auto;
-            aspect-ratio: 4 / 3;
-            padding: 12px;
-            margin: 0 auto;
-          }
-
-          /* center the screenshots grid + items */
-           .screenshots-grid {
-    grid-template-columns: repeat(2, 1fr); /* ✅ 2 per row */
-    gap: 12px;
-    width: 100%;
-  }
-
-  .screenshot-item {
-    width: 100%;  /* ✅ let it auto-fit */
-    align-items: center;
-  }
-
-  .screenshot-frame {
-    width: 100%;        /* ✅ take full cell width */
-    aspect-ratio: 9 / 16;
-    height: auto;
-    padding: 6px;
-  }
-
-
-          /* keep footer & labels centered and comfy */
+          .app-frame { width: min(92vw, 360px); height: auto; aspect-ratio: 4 / 3; padding: 12px; margin: 0 auto; }
+          .screenshots-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
+          .screenshot-item { width: 100%; align-items: center; }
+          .screenshot-frame { width: 100%; aspect-ratio: 9 / 16; height: auto; padding: 6px; }
           .section-label { text-align: center; }
           .project-divider { margin-top: 60px; }
         }
-
-        /* Tablet tweaks (optional, safe) */
         @media (min-width: 641px) and (max-width: 1023px) {
           .project-header { max-width: 90vw; }
           .app-frame { width: 90vw; height: auto; aspect-ratio: 4 / 3; }

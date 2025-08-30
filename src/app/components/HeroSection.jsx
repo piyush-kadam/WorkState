@@ -260,6 +260,171 @@ export default function HeroSection() {
   </div>
 </section>
 
+{/* Technologies Section */}
+<section className="relative w-full bg-black py-[6vh] overflow-hidden">
+  <div className="w-full px-[2vw]">
+    {/* Section Header */}
+    <div className="text-center mb-[4vh]">
+      <h2 className="text-[clamp(2.5rem,8vw,5rem)] font-black text-white leading-tight mb-4">
+        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">Tech Stack</span>
+      </h2>
+      <div className="h-px w-32 bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-6"></div>
+      <p className="text-white/60 text-[clamp(1rem,3vw,1.25rem)] max-w-2xl mx-auto">
+        Cutting-edge technologies that power infinite possibilities
+      </p>
+    </div>
+
+    {/* Scrolling Tech Stack */}
+    <div className="relative space-y-8">
+      {/* Gradient overlays */}
+      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none"></div>
+      
+      {/* First Row - Moving Left */}
+      <div className="relative overflow-hidden py-4">
+        <div className="flex gap-8 animate-marquee-left">
+          {[
+            { name: 'React', logo: 'https://skillicons.dev/icons?i=react', fallback: '⚛️' },
+            { name: 'MongoDB', logo: 'https://skillicons.dev/icons?i=mongodb', fallback: '🍃' },
+            { name: 'Express', logo: 'https://skillicons.dev/icons?i=express', fallback: '🚀' },
+            { name: 'Node.js', logo: 'https://skillicons.dev/icons?i=nodejs', fallback: '🟢' },
+            { name: 'Flask', logo: 'https://skillicons.dev/icons?i=flask', fallback: '🧪' },
+            { name: 'Flutter', logo: 'https://skillicons.dev/icons?i=flutter', fallback: '💙' },
+            { name: 'WordPress', logo: 'https://skillicons.dev/icons?i=wordpress', fallback: '📝' },
+            { name: 'Firebase', logo: 'https://skillicons.dev/icons?i=firebase', fallback: '🔥' },
+            { name: 'AWS', logo: 'https://skillicons.dev/icons?i=aws', fallback: '☁️' },
+            { name: 'Vercel', logo: 'https://skillicons.dev/icons?i=vercel', fallback: '▲' },
+            { name: 'Netlify', logo: 'https://skillicons.dev/icons?i=netlify', fallback: '🌐' },
+            { name: 'Supabase', logo: 'https://skillicons.dev/icons?i=supabase', fallback: '💚' }
+          ].concat([
+            { name: 'React', logo: 'https://skillicons.dev/icons?i=react', fallback: '⚛️' },
+            { name: 'MongoDB', logo: 'https://skillicons.dev/icons?i=mongodb', fallback: '🍃' },
+            { name: 'Express', logo: 'https://skillicons.dev/icons?i=express', fallback: '🚀' },
+            { name: 'Node.js', logo: 'https://skillicons.dev/icons?i=nodejs', fallback: '🟢' },
+            { name: 'Flask', logo: 'https://skillicons.dev/icons?i=flask', fallback: '🧪' },
+            { name: 'Flutter', logo: 'https://skillicons.dev/icons?i=flutter', fallback: '💙' },
+            { name: 'WordPress', logo: 'https://skillicons.dev/icons?i=wordpress', fallback: '📝' },
+            { name: 'Firebase', logo: 'https://skillicons.dev/icons?i=firebase', fallback: '🔥' },
+            { name: 'AWS', logo: 'https://skillicons.dev/icons?i=aws', fallback: '☁️' },
+            { name: 'Vercel', logo: 'https://skillicons.dev/icons?i=vercel', fallback: '▲' },
+            { name: 'Netlify', logo: 'https://skillicons.dev/icons?i=netlify', fallback: '🌐' },
+            { name: 'Supabase', logo: 'https://skillicons.dev/icons?i=supabase', fallback: '💚' }
+          ]).map((tech, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 group relative z-10"
+              style={{ margin: '0 4px' }}
+            >
+              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-lg border border-white/20 rounded-2xl hover:bg-gradient-to-r hover:from-white/15 hover:to-white/25 hover:border-white/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer min-w-[180px] transform hover:scale-105 hover:-translate-y-2">
+                <div className="relative w-8 h-8 flex items-center justify-center">
+                  <img 
+                    src={tech.logo} 
+                    alt={tech.name}
+                    className="w-8 h-8 object-contain transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      const fallback = e.target.nextElementSibling;
+                      if (fallback) {
+                        fallback.style.display = 'flex';
+                      }
+                    }}
+                    onLoad={(e) => {
+                      const fallback = e.target.nextElementSibling;
+                      if (fallback) {
+                        fallback.style.display = 'none';
+                      }
+                    }}
+                  />
+                  <div className="w-8 h-8 bg-gradient-to-br from-white/20 to-white/10 rounded-lg items-center justify-center text-lg font-bold text-white border border-white/20 hidden">
+                    {tech.fallback}
+                  </div>
+                </div>
+                <span className="text-white font-semibold text-base whitespace-nowrap group-hover:text-white/90 transition-colors duration-300">
+                  {tech.name}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Second Row - Moving Right */}
+      <div className="relative overflow-hidden py-4">
+        <div className="flex gap-8 animate-marquee-right">
+          {[
+            { name: 'Figma', logo: 'https://skillicons.dev/icons?i=figma', fallback: '🎨' },
+            { name: 'Photoshop', logo: 'https://skillicons.dev/icons?i=ps', fallback: '🖼️' },
+            { name: 'Illustrator', logo: 'https://skillicons.dev/icons?i=ai', fallback: '🎭' },
+            { name: 'After Effects', logo: 'https://skillicons.dev/icons?i=ae', fallback: '🎬' },
+            { name: 'Premiere Pro', logo: 'https://skillicons.dev/icons?i=pr', fallback: '🎥' },
+            { name: 'Blender', logo: 'https://skillicons.dev/icons?i=blender', fallback: '🔮' },
+            { name: 'React Native', logo: 'https://skillicons.dev/icons?i=react', fallback: '📱' },
+            { name: 'Shopify',logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Shopify_logo_2018.svg', fallback: '🛒' },
+            { name: 'Next.js', logo: 'https://skillicons.dev/icons?i=nextjs', fallback: '⏭️' },
+            { name: 'Framer', logo: 'https://uxwing.com/framer-color-icon/', fallback: '🖱️' },
+            { name: 'Tailwind', logo: 'https://skillicons.dev/icons?i=tailwind', fallback: '🎨' },
+            { name: 'Git', logo: 'https://skillicons.dev/icons?i=git', fallback: '🔀' }
+          ].concat([
+            { name: 'Figma', logo: 'https://skillicons.dev/icons?i=figma', fallback: '🎨' },
+            { name: 'Photoshop', logo: 'https://skillicons.dev/icons?i=ps', fallback: '🖼️' },
+            { name: 'Illustrator', logo: 'https://skillicons.dev/icons?i=ai', fallback: '🎭' },
+            { name: 'After Effects', logo: 'https://skillicons.dev/icons?i=ae', fallback: '🎬' },
+            { name: 'Premiere Pro', logo: 'https://skillicons.dev/icons?i=pr', fallback: '🎥' },
+            { name: 'Blender', logo: 'https://skillicons.dev/icons?i=blender', fallback: '🔮' },
+            { name: 'React Native', logo: 'https://skillicons.dev/icons?i=react', fallback: '📱' },
+            { name: 'Shopify', logo: 'https://skillicons.dev/icons?i=shopify', fallback: '🛒' },
+            { name: 'Next.js', logo: 'https://skillicons.dev/icons?i=nextjs', fallback: '⏭️' },
+            { name: 'Framer', logo: 'https://skillicons.dev/icons?i=framer', fallback: '🖱️' },
+            { name: 'Tailwind', logo: 'https://skillicons.dev/icons?i=tailwind', fallback: '🎨' },
+            { name: 'Git', logo: 'https://skillicons.dev/icons?i=git', fallback: '🔀' }
+          ]).map((tech, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 group relative z-10"
+              style={{ margin: '0 4px' }}
+            >
+              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-lg border border-white/20 rounded-2xl hover:bg-gradient-to-r hover:from-white/15 hover:to-white/25 hover:border-white/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer min-w-[180px] transform hover:scale-105 hover:-translate-y-2">
+                <div className="relative w-8 h-8 flex items-center justify-center">
+                  <img 
+                    src={tech.logo} 
+                    alt={tech.name}
+                    className="w-8 h-8 object-contain transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      const fallback = e.target.nextElementSibling;
+                      if (fallback) {
+                        fallback.style.display = 'flex';
+                      }
+                    }}
+                    onLoad={(e) => {
+                      const fallback = e.target.nextElementSibling;
+                      if (fallback) {
+                        fallback.style.display = 'none';
+                      }
+                    }}
+                  />
+                  <div className="w-8 h-8 bg-gradient-to-br from-white/20 to-white/10 rounded-lg items-center justify-center text-lg font-bold text-white border border-white/20 hidden">
+                    {tech.fallback}
+                  </div>
+                </div>
+                <span className="text-white font-semibold text-base whitespace-nowrap group-hover:text-white/90 transition-colors duration-300">
+                  {tech.name}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+     {/* What We Create Section */}
+<section className="relative w-full bg-black flex items-center"></section>
+     {/* What We Create Section */}
+<section className="relative w-full bg-black flex items-center"></section>
+     {/* What We Create Section */}
+<section className="relative w-full bg-black flex items-center"></section>
 
      {/* What We Create Section */}
 <section className="relative w-full bg-black flex items-center">
@@ -323,7 +488,7 @@ export default function HeroSection() {
   </div>
 </section>
 
-      {/* Animations */}
+           {/* Animations */}
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
@@ -343,6 +508,29 @@ export default function HeroSection() {
         }
         .animate-slideIn {
           animation: slideIn 2.5s ease-in-out;
+        }
+
+        /* 🔥 Added marquee animations */
+        @keyframes marquee-left {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0%   { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .animate-marquee-left {
+          display: flex;
+          width: max-content;
+          animation: marquee-left 30s linear infinite;
+        }
+        .animate-marquee-right {
+          display: flex;
+          width: max-content;
+          animation: marquee-right 30s linear infinite;
+        }
+        .hover\\:pause-animation:hover {
+          animation-play-state: paused;
         }
         
         /* Prevent horizontal scroll */

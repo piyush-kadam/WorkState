@@ -9,19 +9,16 @@ export default function AboutPage() {
       name: "Sonu Kumhar",
       role: "Co-Founder • Web Developer",
       bio: "Creates modern, responsive, and fast websites, bringing ideas to life on the web with clean code and creative design.",
-      image: "/sonu.jpeg",
     },
     {
       name: "Piyush Kadam",
       role: "Founder • Flutter App Developer",
       bio: "Specializes in crafting smooth, high-performance mobile applications with Flutter, delivering apps that are beautiful, functional, and reliable.",
-      image: "/piyush.jpeg",
     },
     {
       name: "Ashirwad Kathavate",
       role: "Co-Founder • Social Media Manager",
       bio: "Impactful brand identities and manages social media presence to build engagement, strengthen recognition, and drive growth",
-      image: "/vishal.jpeg",
     },
   ];
 
@@ -53,11 +50,12 @@ export default function AboutPage() {
             key={index}
             className="bg-black border border-white/20 rounded-xl p-6 text-center shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              src={founder.image}
-              alt={founder.name}
-              className="w-32 h-32 object-cover rounded-full mx-auto border-4 border-white shadow-md"
-            />
+            <div className="w-32 h-32 flex items-center justify-center rounded-full mx-auto border-4 border-white shadow-md bg-black text-white text-3xl font-bold">
+              {founder.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
+            </div>
             <h2 className="text-2xl font-semibold mt-4 text-white">{founder.name}</h2>
             <p className="text-sm text-white/70">{founder.role}</p>
             <p className="mt-4 text-sm text-white/80">{founder.bio}</p>

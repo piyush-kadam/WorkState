@@ -138,11 +138,17 @@ export default function Footer() {
             )}
           </div>
           <p className="text-white/50 text-base md:text-lg italic">
-            Designed & Developed by{" "}
-            <span className="font-semibold text-white hover:text-blue-400 cursor-pointer">
-              PiyushKadam
-            </span>
-          </p>
+  Designed & Developed by{" "}
+  <a
+    href="https://www.linkedin.com/in/piyush-kadam2004/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-white hover:text-blue-400"
+  >
+    Piyush Kadam
+  </a>
+</p>
+
         </div>
       </div>
     </footer>

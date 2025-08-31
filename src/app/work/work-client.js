@@ -8,29 +8,30 @@ export default function SimpleSpacePortfolio() {
   const videoRef = useRef(null);
 
   const projects = [
-    {
-      name: "TIXOO",
-      mainImage: "/tixoo.png",
-      images: ["/t1.jpeg","/t2.jpeg","/t3.jpeg","/t4.jpeg","/t5.jpeg","/t6.jpeg","/t7.jpeg","/t8.jpeg"],
-      description: "EVENT MANAGEMENT PLATFORM",
-      details: "Revolutionary digital experience for event organization and ticketing system",
-      year: "2024",
-    },
-    {
+     {
       name: "SHOEHIVE",
       mainImage: "/shoehive.png",
       images: ["/s1.jpeg","/s2.jpeg","/s3.jpeg","/s4.jpeg","/s5.jpeg","/s6.jpeg","/s7.jpeg","/s8.jpeg"],
       description: "PREMIUM SHOE MARKETPLACE",
       details: "Next-generation shopping experience with premium shoe collections",
-      year: "2023",
+      year: "2025",
     },
+    {
+      name: "TIXOO",
+      mainImage: "/tixoo.png",
+      images: ["/t1.jpeg","/t2.jpeg","/t3.jpeg","/t4.jpeg","/t5.jpeg","/t6.jpeg","/t7.jpeg","/t8.jpeg"],
+      description: "EVENT MANAGEMENT PLATFORM",
+      details: "This App is a property of 7SEERS media , it is designed and being developed by piyush kadam working as an intern",
+      year: "2025",
+    },
+   
     {
       name: "APPLIEDPLUS",
       mainImage: "/appliedplus.png",
       images: ["/a1.jpeg","/a2.jpeg","/a3.jpeg","/a4.jpeg","/a5.jpeg","/a6.jpeg","/a7.jpeg","/a8.jpeg"],
       description: "CAREER PLATFORM",
       details: "Advanced job application system connecting talent with opportunities",
-      year: "2024",
+      year: "2025",
     },
   ];
 

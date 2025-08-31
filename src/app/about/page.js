@@ -43,25 +43,41 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Founder Cards */}
-      <div className="relative grid gap-8 md:grid-cols-3 max-w-6xl w-full mt-8">
-        {founders.map((founder, index) => (
-          <div
-            key={index}
-            className="bg-black border border-white/20 rounded-xl p-6 text-center shadow-lg hover:scale-105 transition-transform duration-300"
-          >
-            <div className="w-32 h-32 flex items-center justify-center rounded-full mx-auto border-4 border-white shadow-md bg-black text-white text-3xl font-bold">
-              {founder.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </div>
-            <h2 className="text-2xl font-semibold mt-4 text-white">{founder.name}</h2>
-            <p className="text-sm text-white/70">{founder.role}</p>
-            <p className="mt-4 text-sm text-white/80">{founder.bio}</p>
-          </div>
-        ))}
+{/* Founder Cards */}
+<div className="relative grid gap-8 md:grid-cols-3 max-w-6xl w-full mt-8">
+  {founders.map((founder, index) => {
+    // Assign different colors per founder
+    const colors = [
+      "from-blue-500 to-cyan-500",     // cool blue
+      "from-emerald-500 to-teal-500",  // greenish
+      "from-indigo-500 to-purple-500", // deep royal
+    ];
+    const bgColor = colors[index % colors.length];
+
+    return (
+      <div
+        key={index}
+        className="bg-black border border-white/20 rounded-xl p-6 text-center shadow-lg hover:scale-105 transition-transform duration-300"
+      >
+        <div
+          className={`w-32 h-32 flex items-center justify-center rounded-full mx-auto border-4 border-white shadow-md 
+            bg-gradient-to-r ${bgColor}
+            text-white text-3xl font-bold`}
+        >
+          {founder.name
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}
+        </div>
+        <h2 className="text-2xl font-semibold mt-4 text-white">{founder.name}</h2>
+        <p className="text-sm text-white/70">{founder.role}</p>
+        <p className="mt-4 text-sm text-white/80">{founder.bio}</p>
       </div>
+    );
+  })}
+</div>
+
+
 
       {/* Business Concept */}
       <div className="relative max-w-4xl mt-16 text-center">

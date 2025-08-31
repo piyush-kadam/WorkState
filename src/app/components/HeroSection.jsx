@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useMemo } from 'react';
+import Link from "next/link";
 
 export default function HeroSection() {
   const [animationStep, setAnimationStep] = useState(0);
@@ -84,6 +85,8 @@ export default function HeroSection() {
 
   return (
     <div className="relative w-full max-w-full overflow-x-hidden">
+
+
 {/* Hero Section */}
 <section className="relative w-full min-h-[90vh] sm:min-h-screen overflow-hidden bg-black">
   {/* Background */}
@@ -106,51 +109,56 @@ export default function HeroSection() {
     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40"></div>
   </div>
 
- {/* Text Overlay */}
-<div
-  className={`absolute w-full px-4 sm:px-8 transition-all duration-1500 delay-700 ${
-    animationStep >= 2  
-      ? "opacity-100 translate-y-0"
-      : "opacity-0 translate-y-20"
-  } top-[15%] sm:top-[20%] lg:top-[25%]`}
->
-
-  <div className="text-center px-4 sm:px-8 py-6 sm:py-10 rounded-2xl sm:rounded-3xl bg-black/20 backdrop-blur-md border border-white/10 max-w-4xl mx-auto">
-    <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4 sm:mb-6">
-      <span className="block">YOUR ONE STOP</span>
-      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white animate-pulse">
-        DIGITAL SOLUTION
-      </span>
-    </h1>
-    <div className="h-px w-24 sm:w-32 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-6 opacity-60"></div>
-    <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-      Where innovation meets limitless possibilities. We craft digital
-      experiences that transcend expectations.
-    </p>
+  {/* Text Overlay */}
+  <div
+    className={`absolute w-full px-4 sm:px-8 transition-all duration-1500 delay-700 ${
+      animationStep >= 2  
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-20"
+    } top-[15%] sm:top-[20%] lg:top-[25%]`}
+  >
+    <div className="text-center px-4 sm:px-8 py-6 sm:py-10 rounded-2xl sm:rounded-3xl bg-black/20 backdrop-blur-md border border-white/10 max-w-4xl mx-auto">
+      <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4 sm:mb-6">
+        <span className="block">YOUR ONE STOP</span>
+        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white animate-pulse">
+          DIGITAL SOLUTION
+        </span>
+      </h1>
+      <div className="h-px w-24 sm:w-32 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-6 opacity-60"></div>
+      <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+        Where innovation meets limitless possibilities. We craft digital
+        experiences that transcend expectations.
+      </p>
+    </div>
   </div>
-</div>
 
+  {/* CTA Buttons */}
+  <div
+    className={`absolute left-0 right-0 transition-all duration-1000 delay-1200 ${
+      animationStep >= 3
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-10"
+    } bottom-[30%] sm:bottom-[20%] lg:bottom-[10%]`}
+  >
+    <div className="text-center px-6 sm:px-8">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        
+        {/* Navigate to /work */}
+        <Link
+          href="/work"
+          className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 hover:scale-105 transition-all duration-300 overflow-hidden"
+        >
+          <span className="relative z-10">EXPLORE OUR WORK</span>
+          <div className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
+        </Link>
 
-<div
-  className={`absolute left-0 right-0 transition-all duration-1000 delay-1200 ${
-    animationStep >= 3
-      ? "opacity-100 translate-y-0"
-      : "opacity-0 translate-y-10"
-  } bottom-[30%] sm:bottom-[20%] lg:bottom-[10%]`}
->
-  <div className="text-center px-6 sm:px-8">
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-      <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 hover:scale-105 transition-all duration-300 overflow-hidden">
-        <span className="relative z-10">EXPLORE OUR WORK</span>
-        <div className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
-      </button>
-      <div className="flex items-center space-x-2 text-white/60">
-        <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
-        <span className="text-sm">Scroll to discover more</span>
+        <div className="flex items-center space-x-2 text-white/60">
+          <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
+          <span className="text-sm">Scroll to discover more</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   {/* Particles */}
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -417,9 +425,7 @@ export default function HeroSection() {
   </div>
 </section>
 
-
-
-     {/* What We Create Section */}
+{/* What We Do Section */}
 <section className="relative w-full bg-black flex items-center">
   <div className="w-full px-[4vw] py-[8vh]">
     <div className="grid grid-cols-5 gap-[6vw] items-center w-full max-w-full">
@@ -427,14 +433,16 @@ export default function HeroSection() {
       {/* Left Content */}
       <div className="col-span-5 lg:col-span-2 space-y-[4vh]">
         <div className="space-y-4">
-          <h2 className="text-[clamp(2rem,8vw,4rem)] font-black text-white leading-tight">
-            What <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">We Create</span>
+          <h2 className="text-[clamp(2.5rem,8vw,4.5rem)] font-black text-white leading-tight">
+            What{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">
+              We Do
+            </span>
           </h2>
           <div className="h-px w-[15vw] max-w-24 bg-gradient-to-r from-white via-white/60 to-transparent"></div>
         </div>
 
-        <p className="text-[clamp(1rem,3vw,1.25rem)] text-white/70 leading-relaxed max-w-lg">
+        <p className="text-[clamp(1.25rem,3vw,1.5rem)] text-white/70 leading-relaxed max-w-lg">
           We don't just build websites and apps. We architect digital universes where your wildest ideas come to life.
         </p>
 
@@ -443,7 +451,7 @@ export default function HeroSection() {
             { title: "Web Experiences", desc: "Responsive, lightning-fast websites that captivate" },
             { title: "Mobile Apps", desc: "Native and cross-platform solutions" },
             { title: "Digital Branding", desc: "Visual identities that leave lasting impressions" },
-            { title: "Portfolio Design", desc: "personlal portfolios that tell your story" }
+            { title: "Portfolio Design", desc: "Personal portfolios that tell your story" }
           ].map((item, index) => (
             <div
               key={index}
@@ -451,10 +459,10 @@ export default function HeroSection() {
             >
               <div className="w-2 h-2 bg-white/40 rounded-full mt-2 group-hover:bg-white group-hover:scale-150 transition-all duration-300 flex-shrink-0"></div>
               <div>
-                <h3 className="text-white font-semibold group-hover:text-white/90 transition-colors text-[clamp(0.875rem,2.5vw,1rem)]">
+                <h3 className="text-white font-semibold group-hover:text-white/90 transition-colors text-[clamp(1rem,2.5vw,1.25rem)]">
                   {item.title}
                 </h3>
-                <p className="text-white/50 text-[clamp(0.75rem,2vw,0.875rem)] group-hover:text-white/70 transition-colors">
+                <p className="text-white/50 text-[clamp(0.9rem,2vw,1rem)] group-hover:text-white/70 transition-colors">
                   {item.desc}
                 </p>
               </div>

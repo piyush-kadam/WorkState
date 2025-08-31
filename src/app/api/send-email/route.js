@@ -42,10 +42,11 @@ export async function POST(req) {
               "${message}"
             </blockquote>
             <div style="margin-top:25px; text-align:center;">
-              <a href="https://workstate.com" target="_blank"
-                style="background:#111827; color:white; padding:14px 26px; border-radius:8px; text-decoration:none; font-weight:500; display:inline-block;">
-                🔗 Visit WorkState
-              </a>
+              <a href="https://workstate.in" target="_blank" rel="noopener noreferrer"
+  style="background:#111827; color:white; padding:14px 26px; border-radius:8px; text-decoration:none; font-weight:500; display:inline-block;">
+  🔗 Visit WorkState
+</a>
+
             </div>
             <p style="margin-top:40px; font-size:12px; color:#777; text-align:center;">
               This is an automated message from WorkState. Please don’t reply.

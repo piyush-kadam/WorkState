@@ -119,7 +119,7 @@ export default function HeroSection() {
   >
     <div className="text-center px-4 sm:px-8 py-6 sm:py-10 rounded-2xl sm:rounded-3xl bg-black/20 backdrop-blur-md border border-white/10 max-w-4xl mx-auto">
       <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4 sm:mb-6">
-        <span className="block">YOUR ONE STOP</span>
+        <span className="block">YOUR GO - TO</span>
         <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white animate-pulse">
           DIGITAL SOLUTION
         </span>
@@ -363,12 +363,11 @@ export default function HeroSection() {
             { name: 'Illustrator', logo: 'https://skillicons.dev/icons?i=ai', fallback: '🎭' },
             { name: 'After Effects', logo: 'https://skillicons.dev/icons?i=ae', fallback: '🎬' },
             { name: 'Premiere Pro', logo: 'https://skillicons.dev/icons?i=pr', fallback: '🎥' },
-            { name: 'Blender', logo: 'https://skillicons.dev/icons?i=blender', fallback: '🔮' },
             { name: 'React Native', logo: 'https://skillicons.dev/icons?i=react', fallback: '📱' },
             { name: 'Shopify',logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Shopify_logo_2018.svg', fallback: '🛒' },
             { name: 'Next.js', logo: 'https://skillicons.dev/icons?i=nextjs', fallback: '⏭️' },
             { name: 'Framer', logo: 'https://uxwing.com/framer-color-icon/', fallback: '🖱️' },
-            { name: 'Tailwind', logo: 'https://skillicons.dev/icons?i=tailwind', fallback: '🎨' },
+           
             { name: 'Git', logo: 'https://skillicons.dev/icons?i=git', fallback: '🔀' }
           ].concat([
             { name: 'Figma', logo: 'https://skillicons.dev/icons?i=figma', fallback: '🎨' },
@@ -376,12 +375,11 @@ export default function HeroSection() {
             { name: 'Illustrator', logo: 'https://skillicons.dev/icons?i=ai', fallback: '🎭' },
             { name: 'After Effects', logo: 'https://skillicons.dev/icons?i=ae', fallback: '🎬' },
             { name: 'Premiere Pro', logo: 'https://skillicons.dev/icons?i=pr', fallback: '🎥' },
-            { name: 'Blender', logo: 'https://skillicons.dev/icons?i=blender', fallback: '🔮' },
             { name: 'React Native', logo: 'https://skillicons.dev/icons?i=react', fallback: '📱' },
             { name: 'Shopify', logo: 'https://skillicons.dev/icons?i=shopify', fallback: '🛒' },
             { name: 'Next.js', logo: 'https://skillicons.dev/icons?i=nextjs', fallback: '⏭️' },
             { name: 'Framer', logo: 'https://skillicons.dev/icons?i=framer', fallback: '🖱️' },
-            { name: 'Tailwind', logo: 'https://skillicons.dev/icons?i=tailwind', fallback: '🎨' },
+            
             { name: 'Git', logo: 'https://skillicons.dev/icons?i=git', fallback: '🔀' }
           ]).map((tech, index) => (
             <div

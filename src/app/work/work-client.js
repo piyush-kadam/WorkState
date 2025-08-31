@@ -33,6 +33,28 @@ export default function SimpleSpacePortfolio() {
       details: "Advanced job application system connecting talent with opportunities",
       year: "2025",
     },
+    {
+  name: "SKILLCONNECT",
+  mainImage: "/connect.jpeg",
+  images: [
+    "/c1.jpeg","/c2.jpeg","/c6.jpg","/c7.jpg","/c8.jpg","/c3.png","/c4.png",
+    "/c5.jpeg",
+  ],
+  description: "LEARNING & NETWORKING",
+  details: "Platform connecting learners with mentors and industry experts to grow skills and careers",
+  year: "2025",
+},
+
+{
+  name: "REAL ESTATE HUB",
+  mainImage: "/real.jpeg",
+  images: [
+    "/r1.jpeg","/r2.jpeg","/r3.jpeg","/r4.jpeg"
+  ],
+  description: "PROPERTY PLATFORM",
+  details: "Modern real estate platform for discovering, listing, and managing properties with ease",
+  year: "2025",
+},
   ];
 
   // ✅ Setup playback rate (slows video down)
@@ -134,7 +156,7 @@ export default function SimpleSpacePortfolio() {
                       <div className="app-frame">
                         <img src={project.mainImage} alt={project.name} className="app-image" />
                       </div>
-                      <div className="app-label">MAIN APPLICATION</div>
+                      <div className="app-label">APPLICATION</div>
                     </div>
                   </div>
 
@@ -174,8 +196,8 @@ export default function SimpleSpacePortfolio() {
 
           {/* Footer */}
           <div className="text-center mt-40">
-            <div className="text-4xl font-black mb-4">END TRANSMISSION</div>
-            <div className="text-sm tracking-widest text-gray-500">PORTFOLIO • 2024 • SPACE</div>
+            <div className="text-4xl font-black mb-4">PORTFOLIO</div>
+            <div className="text-sm tracking-widest text-gray-500">PORTFOLIO • 2025 • SPACE</div>
           </div>
         </div>
       </div>

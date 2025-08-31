@@ -108,12 +108,13 @@ export default function HeroSection() {
 
  {/* Text Overlay */}
 <div
-  className={`absolute w-full transition-all duration-1500 delay-700 ${
-    animationStep >= 2
+  className={`absolute w-full px-4 sm:px-8 transition-all duration-1500 delay-700 ${
+    animationStep >= 2  
       ? "opacity-100 translate-y-0"
       : "opacity-0 translate-y-20"
   } top-[15%] sm:top-[20%] lg:top-[25%]`}
 >
+
   <div className="text-center px-4 sm:px-8 py-6 sm:py-10 rounded-2xl sm:rounded-3xl bg-black/20 backdrop-blur-md border border-white/10 max-w-4xl mx-auto">
     <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-4 sm:mb-6">
       <span className="block">YOUR ONE STOP</span>
@@ -200,9 +201,6 @@ export default function HeroSection() {
     </div>
   </div>
 </section>
-
-
-
 
      {/* Video Section */}
 <section className="relative w-full min-h-screen bg-black overflow-hidden flex items-center">
@@ -419,12 +417,7 @@ export default function HeroSection() {
   </div>
 </section>
 
-     {/* What We Create Section */}
-<section className="relative w-full bg-black flex items-center"></section>
-     {/* What We Create Section */}
-<section className="relative w-full bg-black flex items-center"></section>
-     {/* What We Create Section */}
-<section className="relative w-full bg-black flex items-center"></section>
+
 
      {/* What We Create Section */}
 <section className="relative w-full bg-black flex items-center">

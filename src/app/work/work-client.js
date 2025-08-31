@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 export default function SimpleSpacePortfolio() {
   const [videoEnded, setVideoEnded] = useState(false);
   const [muted, setMuted] = useState(true);
-  const [hasPlayedVideo, setHasPlayedVideo] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const videoRef = useRef(null);
 
   const projects = [
@@ -34,19 +34,18 @@ export default function SimpleSpacePortfolio() {
     },
   ];
 
-  // ✅ Only play intro video once per refresh
+  // ✅ Setup playback rate (slows video down)
   useEffect(() => {
-    if (!sessionStorage.getItem("videoPlayed")) {
-      setHasPlayedVideo(false);
-    } else {
-      setVideoEnded(true);
-      setHasPlayedVideo(true);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.75; // slow motion
     }
   }, []);
 
   const handleVideoEnd = () => {
-    setVideoEnded(true);
-    sessionStorage.setItem("videoPlayed", "true");
+    setIsFadingOut(true); // trigger fade-out
+    setTimeout(() => {
+      setVideoEnded(true); // remove video after transition
+    }, 1200); // match fade-out duration
   };
 
   const toggleMute = () => {
@@ -65,15 +64,19 @@ export default function SimpleSpacePortfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white relative">
-      {/* ✅ Intro Video Overlay */}
-      {!videoEnded && !hasPlayedVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+      {/* ✅ Intro Video Overlay with fade in/out */}
+      {!videoEnded && (
+        <div
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-1000 ${
+            isFadingOut ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <video
             ref={videoRef}
             src="/h5.mp4"
             autoPlay
             muted={muted}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover fade-in"
             onEnded={handleVideoEnd}
           />
           {/* Controls */}
@@ -176,9 +179,16 @@ export default function SimpleSpacePortfolio() {
         </div>
       </div>
 
-      {/* ⭐ Your existing styles untouched */}
+      {/* ⭐ Styles */}
       <style jsx>{`
         :global(html), :global(body) { overflow-x: hidden; }
+        .fade-in {
+          animation: fadeIn 1.5s ease-in forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
         .stars {
           position: absolute;
           width: 100%;

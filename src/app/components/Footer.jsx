@@ -10,9 +10,10 @@ export default function Footer() {
   const services = [
     "Web Development",
     "Mobile Apps",
-    "Digital Branding",
+    
     "UI/UX Design",
-    "E-commerce",
+   "Graphics Design",
+   "video editing",
     "SEO & Marketing",
   ];
 

@@ -21,7 +21,7 @@ export default function SimpleSpacePortfolio() {
       mainImage: "/tixoo.png",
       images: ["/t1.jpeg","/t2.jpeg","/t3.jpeg","/t4.jpeg","/t5.jpeg","/t6.jpeg","/t7.jpeg","/t8.jpeg"],
       description: "EVENT MANAGEMENT PLATFORM",
-      details: "This App is a property of 7SEERS media , it is designed and being developed by piyush kadam working as an intern",
+      details: "This App is a property of 7SEERS media , it is designed and being developed by piyush kadam working as an intern for Tixoo",
       year: "2025",
     },
    
@@ -30,7 +30,7 @@ export default function SimpleSpacePortfolio() {
       mainImage: "/appliedplus.png",
       images: ["/a1.jpeg","/a2.jpeg","/a3.jpeg","/a4.jpeg","/a5.jpeg","/a6.jpeg","/a7.jpeg","/a8.jpeg"],
       description: "CAREER PLATFORM",
-      details: "Advanced job application system connecting talent with opportunities",
+      details: "Advanced job application system connecting talent with opportunities, developed for LibraryFLow and AppliedPlus ltd",
       year: "2025",
     },
     {
@@ -52,7 +52,7 @@ export default function SimpleSpacePortfolio() {
     "/r1.jpeg","/r2.jpeg","/r3.jpeg","/r4.jpeg"
   ],
   description: "PROPERTY PLATFORM",
-  details: "Modern real estate platform for discovering, listing, and managing properties with ease",
+  details: "Modern real estate platform for discovering, listing, and managing properties with ease , developed for RK real estates",
   year: "2025",
 },
   ];
